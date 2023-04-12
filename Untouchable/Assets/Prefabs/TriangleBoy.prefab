@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4305569167891099979}
   - component: {fileID: 4305569167891099978}
   - component: {fileID: 4305569167891099973}
-  - component: {fileID: 4305569167891099974}
+  - component: {fileID: 151289243}
   m_Layer: 0
   m_Name: TriangleBoy
   m_TagString: Player
@@ -123,8 +123,8 @@ MonoBehaviour:
   moveSpeed: 20
   topSpeed: 5
   Hp: 0
---- !u!61 &4305569167891099974
-BoxCollider2D:
+--- !u!60 &151289243
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -136,7 +136,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.21133333}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.28866667}
@@ -146,6 +146,8 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0, y: 0.5773587}
+      - {x: -0.5, y: -0.28866667}
+      - {x: 0.5, y: -0.28866667}

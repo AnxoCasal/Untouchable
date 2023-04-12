@@ -19,14 +19,14 @@ public class ShapeSpawmer : MonoBehaviour
         if(timer > spawn_interval)
         {
             timer = 0;
-            xaux = random.Next(-10,11);
+            xaux = random.Next(-20,21);
             
             if(xaux >= 0) {
-                yaux =  10 - xaux;
+                yaux =  20 - xaux;
             } 
             else
             {
-                yaux = 10 -(- xaux);
+                yaux = 20 -(- xaux);
             }
 
             if(random.Next(1,3) == 2) {

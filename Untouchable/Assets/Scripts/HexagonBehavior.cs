@@ -4,15 +4,33 @@ using UnityEngine;
 
 public class HexagonBehavior : MonoBehaviour
 {
-    // Start is called before the first frame update
+    Rigidbody2D rb;
+    Vector2 target;
+    public float speed;
+    float timealive;
+    bool turn = false;
+
     void Start()
     {
-        
+        rb = gameObject.GetComponent<Rigidbody2D>();
+
+        target = new Vector2(transform.position.x, transform.position.y);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
+
+        if (Vector2.Distance(transform.position, new Vector2(0, 0)) < 3.25f && !turn)
+        {
+            turn = true;
+            target = GameObject.FindGameObjectWithTag("Player").transform.position;
+            rb.velocity = Vector3.zero;
+            rb.AddForce((target - new Vector2(transform.position.x, transform.position.y)) * speed);
+        } else if (!turn)
+        {
+            float step = Time.deltaTime * (speed/10);
+            transform.position = Vector2.MoveTowards(transform.position, new Vector2(-target.x, -target.y), step);
+        }
 
     }
 
