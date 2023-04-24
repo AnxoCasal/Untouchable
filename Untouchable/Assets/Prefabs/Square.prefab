@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4267406104330437391}
   m_Layer: 0
   m_Name: Square
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -146,5 +146,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 455dcd81a60eb8f4699bdaba312c1b9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target_transform: {fileID: 4305569167891099972, guid: 31140c720b058494fbc8de3b2d6e9229, type: 3}
   speed: 5

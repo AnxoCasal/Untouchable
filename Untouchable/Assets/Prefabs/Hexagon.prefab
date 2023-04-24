@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5452827862215582703}
   m_Layer: 0
   m_Name: Hexagon
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -151,5 +151,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e14291d72cfb094fb9744fafd810921, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 100
-  topSpeed: 1
+  speed: 50
+  timeStop: 0.5

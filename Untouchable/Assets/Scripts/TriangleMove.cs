@@ -16,6 +16,12 @@ public class TriangleMove : MonoBehaviour
 
     public int Hp;
 
+    float dash_cd = 0f;
+    bool shield_active = false;
+    float shield_cd = 0f;
+    float shield_duration = 1f;
+    public float ultimate_cd = 20f;
+
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
@@ -28,7 +34,7 @@ public class TriangleMove : MonoBehaviour
 
         if (Input.GetKey(KeyCode.W))
         {
-            body.AddForce(new Vector2(0,moveSpeed * Time.deltaTime), ForceMode2D.Impulse);
+            body.AddForce(new Vector2(0, moveSpeed * Time.deltaTime), ForceMode2D.Impulse);
         }
         else if (Input.GetKey(KeyCode.S))
         {
@@ -44,29 +50,111 @@ public class TriangleMove : MonoBehaviour
             body.AddForce(new Vector2(moveSpeed * Time.deltaTime, 0), ForceMode2D.Impulse);
         }
 
-        // CHECK DE VELOCIDAD PUNTA
-
-        if (body.velocity.y > topSpeed)
+        dash_cd -= Time.deltaTime;
+        if (Input.GetKey(KeyCode.Space) && dash_cd < 0)
         {
-            body.velocity = new Vector2(body.velocity.x, topSpeed);
-        }
-        else if (body.velocity.y < -topSpeed)
-        {
-            body.velocity = new Vector2(body.velocity.x, -topSpeed);
+            dash_cd = 2f;
+            dash();
         }
 
-        if (body.velocity.x > topSpeed)
+        shield_cd -= Time.deltaTime;
+        if (Input.GetKey(KeyCode.Q) && shield_cd < 0)
         {
-            body.velocity = new Vector2(topSpeed, body.velocity.y);
+            shield_cd = 6f;
+            shield();
         }
-        else if (body.velocity.x < -topSpeed)
+
+        if (shield_active)
         {
-            body.velocity = new Vector2(-topSpeed, body.velocity.y);
+            GetComponent<Renderer>().material.color = Color.cyan;
+            shield_duration -= Time.deltaTime;
+            if(shield_duration < 0)
+            {
+                shield_active = false;
+            }
+        } else
+        {
+            GetComponent<Renderer>().material.color = Color.yellow;
         }
+
+
+
+        ultimate_cd -= Time.deltaTime;
+        if (Input.GetKey(KeyCode.E) && ultimate_cd < 0)
+        {
+            ultimate_cd = 20f;
+            ultimate();
+        }
+
+
+        // TOP SPEED CHECK
+
+        //if (body.velocity.y > topSpeed)
+        //{
+        //    body.velocity = new Vector2(body.velocity.x, topSpeed);
+        //}
+        //else if (body.velocity.y < -topSpeed)
+        //{
+        //    body.velocity = new Vector2(body.velocity.x, -topSpeed);
+        //}
+
+        //if (body.velocity.x > topSpeed)
+        //{
+        //    body.velocity = new Vector2(topSpeed, body.velocity.y);
+        //}
+        //else if (body.velocity.x < -topSpeed)
+        //{
+        //    body.velocity = new Vector2(-topSpeed, body.velocity.y);
+        //}
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Hp--;
+        if (!shield_active)
+        {
+            Hp--;
+        } else
+        {
+            shield_active = false;
+        }
+    }
+
+    private void dash()
+    {
+        Vector2 impulse = new Vector2(0, 0);
+
+        if (Input.GetKey(KeyCode.W))
+        {
+            impulse.y = 10f;
+        }
+        else if (Input.GetKey(KeyCode.S))
+        {
+            impulse.y = -10f;
+        }
+
+        if (Input.GetKey(KeyCode.A))
+        {
+            impulse.x = -10f;
+        }
+        else if (Input.GetKey(KeyCode.D))
+        {
+            impulse.x = 10f;
+        }
+
+        body.velocity = impulse;
+    }
+
+    private void shield()
+    {
+        shield_active = true;
+        shield_duration = 0.5f;
+    }
+
+    private void ultimate()
+    {
+        foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy"))
+        {
+            Destroy(enemy);
+        }
     }
 }

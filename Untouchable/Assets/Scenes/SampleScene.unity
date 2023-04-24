@@ -237,7 +237,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shape: {fileID: 4883276762247665311, guid: 36629560f67f2a242b5fd518c607bb74, type: 3}
-  spawn_interval: 1
+  spawn_interval: 2
 --- !u!4 &666854766
 Transform:
   m_ObjectHideFlags: 0
@@ -461,11 +461,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4305569167891099972, guid: 31140c720b058494fbc8de3b2d6e9229, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.44
       objectReference: {fileID: 0}
     - target: {fileID: 4305569167891099972, guid: 31140c720b058494fbc8de3b2d6e9229, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.25
+      value: 0.58
       objectReference: {fileID: 0}
     - target: {fileID: 4305569167891099972, guid: 31140c720b058494fbc8de3b2d6e9229, type: 3}
       propertyPath: m_LocalPosition.z
@@ -502,6 +502,10 @@ PrefabInstance:
     - target: {fileID: 4305569167891099976, guid: 31140c720b058494fbc8de3b2d6e9229, type: 3}
       propertyPath: m_Name
       value: TriangleBoy
+      objectReference: {fileID: 0}
+    - target: {fileID: 4305569167891099978, guid: 31140c720b058494fbc8de3b2d6e9229, type: 3}
+      propertyPath: m_LinearDrag
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31140c720b058494fbc8de3b2d6e9229, type: 3}

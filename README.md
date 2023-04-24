@@ -15,3 +15,9 @@ Arreglo de generacion de enemigos, hitboxes y comienzo de nuevo enemigo
 
 # 12/04/2023
 Comportamiento del segundo enemigo completado
+
+# 20/04/2023
+Creacion del enemigo "gusano" y de la "esfera"
+
+# 24/04/2023
+Creacion de las habilidades del player: "dash", "shield" y "ultimate"
