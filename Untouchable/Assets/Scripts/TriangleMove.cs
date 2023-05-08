@@ -30,24 +30,33 @@ public class TriangleMove : MonoBehaviour
     void Update()
     {
 
+
         // CHECK DE INPUTS
+
+        gameObject.GetComponent<Animator>().SetBool("Moving", false);
 
         if (Input.GetKey(KeyCode.W))
         {
             body.AddForce(new Vector2(0, moveSpeed * Time.deltaTime), ForceMode2D.Impulse);
+            gameObject.GetComponent<Animator>().SetBool("Moving", true);
         }
         else if (Input.GetKey(KeyCode.S))
         {
             body.AddForce(new Vector2(0, -moveSpeed * Time.deltaTime), ForceMode2D.Impulse);
+            gameObject.GetComponent<Animator>().SetBool("Moving", true);
         }
 
         if (Input.GetKey(KeyCode.A))
         {
             body.AddForce(new Vector2(-moveSpeed * Time.deltaTime, 0), ForceMode2D.Impulse);
+            gameObject.GetComponent<Animator>().SetBool("Moving", true);
+            gameObject.GetComponent<SpriteRenderer>().flipX = true;
         }
         else if (Input.GetKey(KeyCode.D))
         {
             body.AddForce(new Vector2(moveSpeed * Time.deltaTime, 0), ForceMode2D.Impulse);
+            gameObject.GetComponent<Animator>().SetBool("Moving", true);
+            gameObject.GetComponent<SpriteRenderer>().flipX = false;
         }
 
         dash_cd -= Time.deltaTime;
@@ -85,27 +94,6 @@ public class TriangleMove : MonoBehaviour
             ultimate_cd = 20f;
             ultimate();
         }
-
-
-        // TOP SPEED CHECK
-
-        //if (body.velocity.y > topSpeed)
-        //{
-        //    body.velocity = new Vector2(body.velocity.x, topSpeed);
-        //}
-        //else if (body.velocity.y < -topSpeed)
-        //{
-        //    body.velocity = new Vector2(body.velocity.x, -topSpeed);
-        //}
-
-        //if (body.velocity.x > topSpeed)
-        //{
-        //    body.velocity = new Vector2(topSpeed, body.velocity.y);
-        //}
-        //else if (body.velocity.x < -topSpeed)
-        //{
-        //    body.velocity = new Vector2(-topSpeed, body.velocity.y);
-        //}
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

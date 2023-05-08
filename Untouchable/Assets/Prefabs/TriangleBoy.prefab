@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4305569167891099978}
   - component: {fileID: 4305569167891099973}
   - component: {fileID: 151289243}
+  - component: {fileID: -1750300023171028997}
   m_Layer: 0
   m_Name: TriangleBoy
   m_TagString: Player
@@ -29,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 4305569167891099976}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -76,8 +77,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 1, g: 0.9817687, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 8260fa3e4fbaa204d8ba008dd62c4b27, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -123,6 +124,7 @@ MonoBehaviour:
   moveSpeed: 20
   topSpeed: 5
   Hp: 0
+  ultimate_cd: 20
 --- !u!60 &151289243
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -139,8 +141,8 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.28866667}
-    oldSize: {x: 1, y: 1}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.32, y: 0.38}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -148,6 +150,39 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0, y: 0.5773587}
-      - {x: -0.5, y: -0.28866667}
-      - {x: 0.5, y: -0.28866667}
+    - - {x: 0.12337713, y: -0.06264782}
+      - {x: 0.08431168, y: -0.013769496}
+      - {x: 0.086875245, y: 0.10131015}
+      - {x: 0.06601506, y: 0.14348564}
+      - {x: 0.010710717, y: 0.11893958}
+      - {x: -0.05014775, y: 0.14092837}
+      - {x: -0.06690432, y: 0.12449648}
+      - {x: -0.0624014, y: 0.03188232}
+      - {x: -0.08047361, y: 0.019957198}
+      - {x: -0.081242494, y: -0.036551677}
+      - {x: -0.10728031, y: -0.055347636}
+      - {x: -0.10902403, y: -0.109774366}
+      - {x: -0.06942874, y: -0.13443224}
+      - {x: -0.081854634, y: -0.20288749}
+      - {x: 0.10691635, y: -0.20083869}
+--- !u!95 &-1750300023171028997
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4305569167891099976}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b2231e13bcdca674cb021016578ea8e3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
