@@ -17,7 +17,7 @@ public class HexagonBehavior : MonoBehaviour
 
         target = new Vector2(transform.position.x, transform.position.y);
 
-        if(transform.position.x < 0)
+        if(transform.position.x > 0)
         {
             gameObject.GetComponent<SpriteRenderer>().flipX = true;
         }

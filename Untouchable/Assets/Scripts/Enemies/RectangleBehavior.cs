@@ -7,6 +7,7 @@ public class RectangleBehavior : MonoBehaviour
 {
     Vector2 target;
     public float speed;
+    Transform sprite;
 
     private void Start()
     {
@@ -28,6 +29,12 @@ public class RectangleBehavior : MonoBehaviour
         float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
         Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
         transform.rotation = Quaternion.Slerp(transform.rotation, q, 1);
+        transform.Find("Sprite").rotation = Quaternion.identity;
+
+        if (transform.position.x > 0)
+        {
+            transform.Find("Sprite").GetComponent<SpriteRenderer>().flipX = false;
+        }
     }
 
     void Update()
