@@ -27,3 +27,6 @@ Creacion de los menús y navegacion de pantallas
 
 # 08/05/2023
 Implementacion parcial de sprites y animaciones
+
+# 14-15-16/05/2023
+Completacion de apartado gráfico, menus informativos, apartado de ajustes y diferenciacion de niveles.
